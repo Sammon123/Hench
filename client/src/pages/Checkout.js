@@ -5,11 +5,11 @@ import {
     useElements
 } from "@stripe/react-stripe-js";
 
-const Checkout = () => {
-    const [succeeded, setSucceeded] = useState(false);
+export default function Checkout() {
+    const [succeeded] = useState(false);
     const [error, setError] = useState(null);
-    const [processing, setProcessing] = useState('');
-    const [disabled, setDisabled] = useState(true);
+    const [setProcessing] = useState('');
+    const [setDisabled] = useState(true);
     const [clientSecret, setClientSecret] = useState('');
     const stripe = useStripe();
     const elements = useElements();
@@ -17,7 +17,7 @@ const Checkout = () => {
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
         window
-            .fetch("/create-payment-intent", {
+            .fetch("/checkout", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -54,35 +54,39 @@ const Checkout = () => {
         setDisabled(event.empty);
         setError(event.error ? event.error.message : "");
     };
-    const payload = await stripe.confirmCardPayment(clientSecret, {
-        payment_method: {
-            card: elements.getElement(CardElement),
-            billing_details: {
-                name: ev.target.name.value
+    const handleSubmit = async ev => {
+        ev.preventDefault();
+        setProcessing(true);
+
+        const payload = stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+                card: elements.getElement(CardElement),
+                billing_details: {
+                    name: ev.target.name.value
+                }
             }
-        }
-    });
-    return (
-        <div>
-            <CardElement id="card-element" options={cardStyle} onChange={handleChange} />
-            {/* Show any error that happens when processing the payment */}
-            {error && (
-                <div className="card-error" role="alert">
-                    {error}
-                </div>
-            )}
-            {/* Show a success message upon completion */}
-            <p className={succeeded ? "result-message" : "result-message hidden"}>
-                Payment succeeded, see the result in your
+        });
+        return (
+            <div>
+                <h1>Checkout Page</h1>
+                <CardElement id="card-element" options={cardStyle} onChange={handleChange} />
+                {/* Show any error that happens when processing the payment */}
+                {error && (
+                    <div className="card-error" role="alert">
+                        {error}
+                    </div>
+                )}
+                {/* Show a success message upon completion */}
+                <p className={succeeded ? "result-message" : "result-message hidden"}>
+                    Payment succeeded, see the result in your
         <a
-                    href={`https://dashboard.stripe.com/test/payments`}
-                >
-                    {" "}
+                        href={`https://dashboard.stripe.com/test/payments`}
+                    >
+                        {" "}
           Stripe dashboard.
         </a> Refresh the page to pay again.
       </p>
-        </div>
-    )
+            </div>
+        )
+    }
 }
-
-export default Checkout
