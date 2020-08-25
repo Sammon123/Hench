@@ -56,7 +56,7 @@ const Checkout = () => {
     };
     return (
         <div>
-            <h1>Checkout Page</h1>
+            <CardElement id="card-element" options={cardStyle} onChange={handleChange} />
         </div>
     )
 }
