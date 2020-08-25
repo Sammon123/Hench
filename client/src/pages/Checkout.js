@@ -54,6 +54,14 @@ const Checkout = () => {
         setDisabled(event.empty);
         setError(event.error ? event.error.message : "");
     };
+    const payload = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+            card: elements.getElement(CardElement),
+            billing_details: {
+                name: ev.target.name.value
+            }
+        }
+    });
     return (
         <div>
             <CardElement id="card-element" options={cardStyle} onChange={handleChange} />
