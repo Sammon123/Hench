@@ -6,7 +6,14 @@ import Contact from './pages/Contact'
 import Checkout from './pages/Checkout'
 import Product from './pages/Product'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 import './App.css';
+
+// Make sure to call loadStripe outside of a component’s render to avoid
+// recreating the Stripe object on every render.
+// loadStripe is initialized with your real test publishable API key.
+const promise = loadStripe("pk_test_51HGqIEBMDhC88mikqdlQVcqDukgNHkTGx2aCgi4ehrebOZMVWF1sb0ogzF62CH5YLLjVBmyGa94G3IR9A25dPHPb00wN9ztCwz");
 
 function App() {
   return (
@@ -15,7 +22,9 @@ function App() {
         <Switch>
           <Route path="/checkout">
             <Header />
-            <Checkout />
+            <Elements stripe={promise}>
+              <Checkout />
+            </Elements>
           </Route>
           <Route path="/contact">
             <Header />
