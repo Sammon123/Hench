@@ -65,6 +65,12 @@ const Checkout = () => {
     return (
         <div>
             <CardElement id="card-element" options={cardStyle} onChange={handleChange} />
+            {/* Show any error that happens when processing the payment */}
+            {error && (
+                <div className="card-error" role="alert">
+                    {error}
+                </div>
+            )}
         </div>
     )
 }
