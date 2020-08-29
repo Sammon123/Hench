@@ -3,8 +3,8 @@ import Header from './components/Header'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Contact from './pages/Contact'
-import Checkout from './pages/Checkout'
-import Product from './pages/Product'
+import Checkout from './pages/Checkout/Checkout'
+import Products from './pages/Products'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
@@ -36,7 +36,7 @@ function App() {
           </Route>
           <Route path="/product">
             <Header />
-            <Product />
+            <Products />
           </Route>
           <Route path="/">
             <Header />
