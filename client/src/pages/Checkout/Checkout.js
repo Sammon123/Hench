@@ -7,6 +7,7 @@ import {
 import './Checkout.css'
 export default function CheckoutForm() {
     const [succeeded, setSucceeded] = useState(false);
+    const [email, setEmail] = useState('');
     const [error, setError] = useState(null);
     const [processing, setProcessing] = useState('');
     const [disabled, setDisabled] = useState(true);
@@ -71,6 +72,12 @@ export default function CheckoutForm() {
     };
     return (
         <form id="payment-form" onSubmit={handleSubmit}>
+            <input
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter email address"
+            />
             <CardElement id="card-element" options={cardStyle} onChange={handleChange} />
             <button
                 disabled={processing || disabled || succeeded}
