@@ -79,7 +79,15 @@ app.post('/send', (req, res) => {
         tls: {
             rejectUnauthorized: false
         }
-    })
+    });
+
+    let mailOptions = {
+        from: '"Nodemailer Contact"<petersammon2@gmail.com>',
+        to: 'Petersammon2@gmail.com',
+        subject: 'Node Contact Request',
+        text: 'Hello World?',
+        html: output
+    };
 
 })
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
