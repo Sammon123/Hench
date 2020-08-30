@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './components/Header'
 import Home from './pages/Home'
 import Login from './pages/Login'
-import Contact from './pages/Contact'
+import Contact from './pages/Contact/Contact'
 import Checkout from './pages/Checkout/Checkout'
 import Products from './pages/Products'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
