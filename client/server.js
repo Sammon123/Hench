@@ -18,6 +18,8 @@ app.post("/create-payment-intent", async (req, res) => {
     const customer = await stripe.customers.create();
     // Create a PaymentIntent with the order amount and currency
     const paymentIntent = await stripe.paymentIntents.create({
+        customer: customer.id,
+        setup_future_usage: 'off_session',
         amount: calculateOrderAmount(items),
         currency: "usd"
     });
