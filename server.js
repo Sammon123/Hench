@@ -2,8 +2,10 @@ const express = require("express");
 const app = express();
 const { resolve } = require("path");
 const nodemailer = require('nodemailer');
+require('dotenv').config();
 // This is your real test secret API key.
-const stripe = require("stripe")("sk_test_51HGqIEBMDhC88miklofXo4t06W3K46eueCM1J9kmV2b2NFsunyhg00kl1qwo01MbGROwmaiNNDccjaq2cQQkSueL00mR9Vlqk9");
+const stripe = require("stripe")('sk_test_51HGqIEBMDhC88miklofXo4t06W3K46eueCM1J9kmV2b2NFsunyhg00kl1qwo01MbGROwmaiNNDccjaq2cQQkSueL00mR9Vlqk9');
+
 
 const PORT = process.env.PORT || 5000;
 
@@ -49,7 +51,7 @@ app.post("/create-payment-intent", async (req, res) => {
     });
     res.send({
         clientSecret: paymentIntent.client_secret
-    });
+    })
 });
 
 app.post('/send', (req, res) => {
@@ -69,11 +71,11 @@ app.post('/send', (req, res) => {
     // create reusable transporter object using the default SMTP transport
 
     let transporter = nodemailer.createTransport({
-        host: 'mail.YOURDOMAIN.com',
+        host: process.env.SMTP_HOST,
         port: 587,
         secure: false,
         auth: {
-            user: 'petersammon2@gmail.com',
+            user: process.env.EMAIL,
             pass: 'F15h3567!',
         },
         tls: {
@@ -82,8 +84,8 @@ app.post('/send', (req, res) => {
     });
 
     let mailOptions = {
-        from: '"Nodemailer Contact"<petersammon2@gmail.com>',
-        to: 'Petersammon2@gmail.com',
+        from: `"Nodemailer Contact"${process.env.EMAIL}`,
+        to: process.env.EMAIL,
         subject: 'Node Contact Request',
         text: 'Hello World?',
         html: output
