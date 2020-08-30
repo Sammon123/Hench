@@ -13,6 +13,9 @@ const calculateOrderAmount = items => {
 };
 app.post("/create-payment-intent", async (req, res) => {
     const { items } = req.body;
+    // Alternatively, set up a webhook to listen for the payment_intent.succeeded event
+    // and attach the PaymentMethod to a new Customer
+    const customer = await stripe.customers.create();
     // Create a PaymentIntent with the order amount and currency
     const paymentIntent = await stripe.paymentIntents.create({
         amount: calculateOrderAmount(items),
