@@ -90,7 +90,7 @@ app.post('/send', (req, res) => {
     };
 
     transporter.sendMail(mailOptions, (err, info) => {
-        if (error) {
+        if (err) {
             return console.error(err);
         }
         console.log('Message sent: %s', info.messageId);
