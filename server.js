@@ -50,4 +50,5 @@ app.post("/create-payment-intent", async (req, res) => {
         clientSecret: paymentIntent.client_secret
     });
 });
+
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
