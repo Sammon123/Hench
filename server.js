@@ -89,5 +89,13 @@ app.post('/send', (req, res) => {
         html: output
     };
 
+    transporter.sendMail(mailOptions, (err, info) => {
+        if (error) {
+            return console.error(err);
+        }
+        console.log('Message sent: %s', info.messageId);
+        console.log('PreviewURL: %s', nodemailer.getTestMessageUrl(info));
+    })
+
 })
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
