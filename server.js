@@ -3,6 +3,9 @@ const app = express();
 const { resolve } = require("path");
 // This is your real test secret API key.
 const stripe = require("stripe")("sk_test_51HGqIEBMDhC88miklofXo4t06W3K46eueCM1J9kmV2b2NFsunyhg00kl1qwo01MbGROwmaiNNDccjaq2cQQkSueL00mR9Vlqk9");
+
+const PORT = process.env.PORT || 5000;
+
 app.use(express.static("."));
 app.use(express.json());
 const calculateOrderAmount = items => {
@@ -47,4 +50,4 @@ app.post("/create-payment-intent", async (req, res) => {
         clientSecret: paymentIntent.client_secret
     });
 });
-app.listen(4242, () => console.log('Node server listening on port 4242!'));
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
