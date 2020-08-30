@@ -11,6 +11,26 @@ const calculateOrderAmount = items => {
     // people from directly manipulating the amount on the client
     return 1400;
 };
+const chargeCustomer = async (customerId) => {
+    // Lookup the payment methods available for the customer
+    const paymentMethods = await stripe.paymentMethods.list({
+        customer: customerId,
+        type: "card"
+    });
+    // Charge the customer and payment method immediately
+    const paymentIntent = await stripe.paymentIntents.create({
+        amount: 1099,
+        currency: "usd",
+        customer: customerId,
+        payment_method: paymentMethods.data[0].id,
+        off_session: true,
+        confirm: true
+    });
+    if (paymentIntent.status === "succeeded") {
+        console.log("✅ Successfully charged card off session");
+    }
+}
+
 app.post("/create-payment-intent", async (req, res) => {
     const { items } = req.body;
     // Alternatively, set up a webhook to listen for the payment_intent.succeeded event
