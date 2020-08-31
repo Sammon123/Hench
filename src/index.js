@@ -4,10 +4,14 @@ import './index.css';
 import App from './App';
 import './tailwind.output.css'
 import * as serviceWorker from './serviceWorker';
+import { StateProvider } from './components/StateProvider'
+import reducer, { initialState } from './reducer'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <StateProvider initialState={initialState} reducer={reducer}>
+      <App />
+    </StateProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

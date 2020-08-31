@@ -1,5 +1,5 @@
 export const initialState = {
-    basket: [],
+    cart: [],
     user: null,
 }
 
