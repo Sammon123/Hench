@@ -3,7 +3,7 @@ import Header from './components/Header'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Contact from './pages/Contact/Contact'
-import Checkout from './pages/Checkout/Checkout'
+import CheckoutForm from './pages/Checkout/Checkout'
 import Products from './pages/Products/Products'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { loadStripe } from "@stripe/stripe-js";
@@ -23,7 +23,7 @@ function App() {
           <Route path="/checkout">
             <Header />
             <Elements stripe={promise}>
-              <Checkout />
+              <CheckoutForm />
             </Elements>
           </Route>
           <Route path="/contact">

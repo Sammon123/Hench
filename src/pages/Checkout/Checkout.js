@@ -7,7 +7,7 @@ import {
 import './Checkout.css'
 import { useStateValue } from "../../components/StateProvider";
 export default function CheckoutForm() {
-    const [{ cart }, dispatch] = useStateValue();
+    const [{ cart }] = useStateValue();
     const [succeeded, setSucceeded] = useState(false);
     const [email, setEmail] = useState('');
     const [error, setError] = useState(null);
@@ -79,6 +79,7 @@ export default function CheckoutForm() {
                 {cart?.length === 0 ? (
                     <div>
                         <h2>Your Shopping Cart is Empty</h2>
+                        <p>You have no items in your cart. To buy one or more items, click "Add to Cart" next to the item</p>
                     </div>
                 ) : (<div>
                     <h2>Your Shopping Cart</h2>

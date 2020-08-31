@@ -1,5 +1,6 @@
 import React from 'react';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket'
+import { Link } from 'react-router-dom';
 import { useStateValue } from '../components/StateProvider'
 
 const Header = () => {
@@ -17,25 +18,25 @@ const Header = () => {
             </div>
             <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
                 <div className="text-sm lg:flex-grow">
-                    <a href="/" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                    <Link to="/" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                         Home
-      </a>
-                    <a href="/checkout" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+      </Link>
+                    <Link to="/checkout" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                         Checkout
-      </a>
-                    <a href="/contact" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+      </Link>
+                    <Link to="/contact" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                         Contact
-      </a>
-                    <a href="/login" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+      </Link>
+                    <Link to="/login" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                         Login/Sign Up
-      </a>
-                    <a href="/product" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+      </Link>
+                    <Link to="/product" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                         Apparel
-      </a>
-                    <a href="/checkout" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+      </Link>
+                    <Link to="/checkout" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                         <ShoppingBasketIcon />
                         <span>{cart?.length}</span>
-                    </a>
+                    </Link>
                     <input type="text" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" />
 
                 </div>
