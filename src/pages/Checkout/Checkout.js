@@ -5,7 +5,9 @@ import {
     useElements
 } from "@stripe/react-stripe-js";
 import './Checkout.css'
+import { useStateValue } from "../../components/StateProvider";
 export default function CheckoutForm() {
+    const [{ cart }, dispatch] = useStateValue();
     const [succeeded, setSucceeded] = useState(false);
     const [email, setEmail] = useState('');
     const [error, setError] = useState(null);
@@ -72,42 +74,54 @@ export default function CheckoutForm() {
         }
     };
     return (
-        <form id="payment-form" onSubmit={handleSubmit}>
-            <input
-                type="text"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter email address"
-            />
-            <CardElement id="card-element" options={cardStyle} onChange={handleChange} />
-            <button
-                disabled={processing || disabled || succeeded}
-                id="submit"
-            >
-                <span id="button-text">
-                    {processing ? (
-                        <div className="spinner" id="spinner"></div>
-                    ) : (
-                            "Pay"
-                        )}
-                </span>
-            </button>
-            {/* Show any error that happens when processing the payment */}
-            {error && (
-                <div className="card-error" role="alert">
-                    {error}
+        <>
+            <div className="checkout">
+                {cart?.length === 0 ? (
+                    <div>
+                        <h2>Your Shopping Cart is Empty</h2>
+                    </div>
+                ) : (<div>
+                    <h2>Your Shopping Cart</h2>
                 </div>
-            )}
-            {/* Show a success message upon completion */}
-            <p className={succeeded ? "result-message" : "result-message hidden"}>
-                Payment succeeded, see the result in your
-        <a
-                    href={`https://dashboard.stripe.com/test/payments`}
+                    )}
+            </div>
+            <form id="payment-form" onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter email address"
+                />
+                <CardElement id="card-element" options={cardStyle} onChange={handleChange} />
+                <button
+                    disabled={processing || disabled || succeeded}
+                    id="submit"
                 >
-                    {" "}
+                    <span id="button-text">
+                        {processing ? (
+                            <div className="spinner" id="spinner"></div>
+                        ) : (
+                                "Pay"
+                            )}
+                    </span>
+                </button>
+                {/* Show any error that happens when processing the payment */}
+                {error && (
+                    <div className="card-error" role="alert">
+                        {error}
+                    </div>
+                )}
+                {/* Show a success message upon completion */}
+                <p className={succeeded ? "result-message" : "result-message hidden"}>
+                    Payment succeeded, see the result in your
+        <a
+                        href={`https://dashboard.stripe.com/test/payments`}
+                    >
+                        {" "}
           Stripe dashboard.
         </a> Refresh the page to pay again.
       </p>
-        </form>
+            </form>
+        </>
     );
 }
