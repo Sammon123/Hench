@@ -1,6 +1,9 @@
-import React from 'react'
+import React from 'react';
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket'
+import { useStateValue } from '../components/StateProvider'
 
 const Header = () => {
+    const [{ cart }] = useStateValue();
     return (
         <nav className="flex items-center justify-between flex-wrap bg-red-900 p-6">
             <div className="flex items-center flex-shrink-0 text-white mr-6">
@@ -29,11 +32,15 @@ const Header = () => {
                     <a href="/product" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                         Apparel
       </a>
+                    <a href="/checkout" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                        <ShoppingBasketIcon />
+                        <span>{cart.length}</span>
+                    </a>
                     <input type="text" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" />
 
                 </div>
             </div>
-        </nav>
+        </nav >
     )
 }
 
