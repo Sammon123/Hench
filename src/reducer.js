@@ -6,9 +6,9 @@ export const initialState = {
 const reducer = (state, action) => {
     switch (action.type) {
         case 'ADD_TO_BASKET':
-            break;
+            return { ...state, cart: [...state.cart, action.item] };
         case 'REMOVE_FROM_BASKET':
-            break;
+            return { state };
         default:
             return state;
     }
