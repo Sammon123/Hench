@@ -20,6 +20,34 @@ const Products = () => {
                     rating={5}
                     image="https://m.media-amazon.com/images/I/91rTf5TWhkL._AC_UY327_FMwebp_QL65_.jpg" />
             </div>
+            <div className="home-row">
+                <Product
+                    id="12321341"
+                    title="The Fifth Vital"
+                    price={29.00}
+                    rating={5}
+                    image="https://m.media-amazon.com/images/I/91rTf5TWhkL._AC_UY327_FMwebp_QL65_.jpg" />
+                <Product
+                    id="12321341"
+                    title="The Fifth Vital"
+                    price={29.00}
+                    rating={5}
+                    image="https://m.media-amazon.com/images/I/91rTf5TWhkL._AC_UY327_FMwebp_QL65_.jpg" />
+                <Product
+                    id="12321341"
+                    title="The Fifth Vital"
+                    price={29.00}
+                    rating={5}
+                    image="https://m.media-amazon.com/images/I/91rTf5TWhkL._AC_UY327_FMwebp_QL65_.jpg" />
+            </div>
+            <div className="home-row">
+                <Product
+                    id="12321341"
+                    title="The Fifth Vital"
+                    price={29.00}
+                    rating={5}
+                    image="https://m.media-amazon.com/images/I/91rTf5TWhkL._AC_UY327_FMwebp_QL65_.jpg" />
+            </div>
         </div>
     )
 }
