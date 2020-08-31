@@ -4,7 +4,7 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Contact from './pages/Contact/Contact'
 import Checkout from './pages/Checkout/Checkout'
-import Products from './pages/Products'
+import Products from './pages/Products/Products'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
