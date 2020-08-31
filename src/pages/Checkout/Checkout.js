@@ -82,7 +82,11 @@ export default function CheckoutForm() {
                         <p>You have no items in your cart. To buy one or more items, click "Add to Cart" next to the item</p>
                     </div>
                 ) : (<div>
-                    <h2>Your Shopping Cart</h2>
+                    <h2 className="checkout-title">Your Shopping Cart</h2>
+                    <CheckoutProduct id={item.id}
+                        title={item.title}
+                        image={item.image}
+                        price={item.price} />
                 </div>
                     )}
             </div>
