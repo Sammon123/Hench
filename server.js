@@ -1,11 +1,11 @@
 const express = require("express");
-const app = express();
 const { resolve } = require("path");
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 // This is your real test secret API key.
 const stripe = require("stripe")('sk_test_51HGqIEBMDhC88miklofXo4t06W3K46eueCM1J9kmV2b2NFsunyhg00kl1qwo01MbGROwmaiNNDccjaq2cQQkSueL00mR9Vlqk9');
 
+const app = express();
 
 const PORT = process.env.PORT || 5000;
 

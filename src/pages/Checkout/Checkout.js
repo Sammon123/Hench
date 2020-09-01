@@ -6,6 +6,7 @@ import {
 } from "@stripe/react-stripe-js";
 import './Checkout.css'
 import { useStateValue } from "../../components/StateProvider";
+import CheckoutProduct from '../../components/CheckoutProduct/CheckoutProduct';
 export default function CheckoutForm() {
     const [{ cart }] = useStateValue();
     const [succeeded, setSucceeded] = useState(false);
@@ -83,10 +84,13 @@ export default function CheckoutForm() {
                     </div>
                 ) : (<div>
                     <h2 className="checkout-title">Your Shopping Cart</h2>
-                    <CheckoutProduct id={item.id}
-                        title={item.title}
-                        image={item.image}
-                        price={item.price} />
+                    {cart.map((item) => (
+                        <CheckoutProduct key={item.id}
+                            id={item.id}
+                            title={item.title}
+                            image={item.image}
+                            price={item.price} />
+                    ))}
                 </div>
                     )}
             </div>
