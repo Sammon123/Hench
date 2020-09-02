@@ -1,6 +1,7 @@
 import React from 'react'
 import './Products.css'
 import Product from '../../components/Product/Product'
+import { v4 as uuidv4 } from 'uuid'
 
 const Products = () => {
     return (
@@ -8,33 +9,13 @@ const Products = () => {
             <img src="https://www.inspireinkclothing.com/wp-content/uploads/IMGP4483.jpg" alt="" className="home-image" />
             <div className="home-row">
                 <Product
-                    id="12321341"
+                    id={uuidv4()}
                     title="The Fifth Vital"
                     price={29.00}
                     rating={5}
                     image="https://m.media-amazon.com/images/I/91rTf5TWhkL._AC_UY327_FMwebp_QL65_.jpg" />
                 <Product
-                    id="12321341"
-                    title="The Fifth Vital"
-                    price={29.00}
-                    rating={5}
-                    image="https://m.media-amazon.com/images/I/91rTf5TWhkL._AC_UY327_FMwebp_QL65_.jpg" />
-            </div>
-            <div className="home-row">
-                <Product
-                    id="12321341"
-                    title="The Fifth Vital"
-                    price={29.00}
-                    rating={5}
-                    image="https://m.media-amazon.com/images/I/91rTf5TWhkL._AC_UY327_FMwebp_QL65_.jpg" />
-                <Product
-                    id="12321341"
-                    title="The Fifth Vital"
-                    price={29.00}
-                    rating={5}
-                    image="https://m.media-amazon.com/images/I/91rTf5TWhkL._AC_UY327_FMwebp_QL65_.jpg" />
-                <Product
-                    id="12321341"
+                    id={uuidv4()}
                     title="The Fifth Vital"
                     price={29.00}
                     rating={5}
@@ -42,7 +23,27 @@ const Products = () => {
             </div>
             <div className="home-row">
                 <Product
-                    id="12321341"
+                    id={uuidv4()}
+                    title="The Fifth Vital"
+                    price={29.00}
+                    rating={5}
+                    image="https://m.media-amazon.com/images/I/91rTf5TWhkL._AC_UY327_FMwebp_QL65_.jpg" />
+                <Product
+                    id={uuidv4()}
+                    title="The Fifth Vital"
+                    price={29.00}
+                    rating={5}
+                    image="https://m.media-amazon.com/images/I/91rTf5TWhkL._AC_UY327_FMwebp_QL65_.jpg" />
+                <Product
+                    id={uuidv4()}
+                    title="The Fifth Vital"
+                    price={29.00}
+                    rating={5}
+                    image="https://m.media-amazon.com/images/I/91rTf5TWhkL._AC_UY327_FMwebp_QL65_.jpg" />
+            </div>
+            <div className="home-row">
+                <Product
+                    id={uuidv4()}
                     title="The Fifth Vital"
                     price={29.00}
                     rating={5}

@@ -1,12 +1,5 @@
 export const initialState = {
-    cart: [
-        {
-            id: "12321341",
-            title: "The Fifth Vital",
-            price: 29.00,
-            image: "https://m.media-amazon.com/images/I/91rTf5TWhkL._AC_UY327_FMwebp_QL65_.jpg"
-        }
-    ],
+    cart: [],
     user: null,
 }
 
