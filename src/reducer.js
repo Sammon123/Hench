@@ -1,3 +1,7 @@
+export const getCartTotal = (cart) => {
+    return cart?.reduce((amount, item) => item.price + amount, 0)
+}
+
 export const initialState = {
     cart: [],
     user: null,
