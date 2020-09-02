@@ -7,6 +7,7 @@ import {
 import './Checkout.css'
 import { useStateValue } from "../../components/StateProvider";
 import CheckoutProduct from '../../components/CheckoutProduct/CheckoutProduct';
+import Subtotal from '../../components/SubTotal';
 export default function CheckoutForm() {
     const [{ cart }] = useStateValue();
     const [succeeded, setSucceeded] = useState(false);
@@ -95,6 +96,9 @@ export default function CheckoutForm() {
                     )}
             </div>
             <form id="payment-form" onSubmit={handleSubmit}>
+                {cart.length > 0 && (
+                    <Subtotal />
+                )}
                 <input
                     type="text"
                     value={email}
