@@ -7,7 +7,7 @@ import {
 import './Checkout.css'
 import { useStateValue } from "../../components/StateProvider";
 import CheckoutProduct from '../../components/CheckoutProduct/CheckoutProduct';
-import Subtotal from '../../components/SubTotal';
+import Subtotal from '../../components/Subtotal';
 export default function CheckoutForm() {
     const [{ cart }] = useStateValue();
     const [succeeded, setSucceeded] = useState(false);
