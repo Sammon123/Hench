@@ -23,6 +23,15 @@ app.use(logger('dev'))
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+
+// express session middleware
+app.use(session({
+    secret: 'keyboard cat',
+    resave: true,
+    saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 const calculateOrderAmount = items => {
     // Replace this constant with a calculation of the order's amount
     // Calculate the order total on the server to prevent
