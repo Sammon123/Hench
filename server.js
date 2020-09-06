@@ -1,4 +1,10 @@
 const express = require("express");
+const session = require('express-session');
+const logger = require('morgan')
+const passport = require('passport')
+const bodyParser = require('body-parser')
+const db = require('./models')
+const routes = require('./routes')
 const { resolve } = require("path");
 const nodemailer = require('nodemailer');
 require('dotenv').config();
@@ -11,6 +17,12 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.static("."));
 app.use(express.json());
+
+// express middleware 
+app.use(logger('dev'))
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 const calculateOrderAmount = items => {
     // Replace this constant with a calculation of the order's amount
     // Calculate the order total on the server to prevent
