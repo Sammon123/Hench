@@ -9,9 +9,21 @@ const Login = () => {
 
     const login = (e) => {
         e.preventDefault();
+        auth.signInWithEmailAndPassword(email, password)
+            .then((auth) => {
+
+            })
+            .catch((e) => alert(e.message))
     }
     const signUp = (e) => {
         e.preventDefault();
+        auth.createUserWithEmailAndPassword(email password)
+            , then((auth) => {
+
+            })
+                .catch((e) => {
+                    alert(e.message)
+                })
     }
     return (
         <div className="container" id="container">
