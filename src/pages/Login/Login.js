@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { auth } from '../../../firebase';
+import { auth } from '../../firebase';
 import './Login.css'
 
 const Login = () => {
@@ -19,9 +19,13 @@ const Login = () => {
                 <h1>Login <i className="fas fa-book-open"></i></h1>
                 <div className="form-control">
                     <label for="email">Email</label>
-                    <input type="email" name="email" />
+                    <input
+                        onChange={e => setEmail(e.target.value)}
+                        value={email} type="email" name="email" />
                     <label htmlFor="">Password</label>
-                    <input type="password" name="password" />
+                    <input
+                        onChange={e => setPassword(e.target.value)}
+                        value={password} type="password" name="password" />
                 </div>
                 <button
                     onClick={login}
