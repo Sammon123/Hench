@@ -3,8 +3,8 @@ const session = require('express-session');
 const logger = require('morgan')
 const passport = require('passport')
 const bodyParser = require('body-parser')
-const db = require('./models')
-const routes = require('./routes')
+// const db = require('./models')
+// const routes = require('./routes')
 const { resolve } = require("path");
 const nodemailer = require('nodemailer');
 require('dotenv').config();
