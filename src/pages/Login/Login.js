@@ -9,7 +9,9 @@ const Login = () => {
 
     const login = (e) => {
         e.preventDefault();
-
+    }
+    const signUp = (e) => {
+        e.preventDefault();
     }
     return (
         <div className="container" id="container">
