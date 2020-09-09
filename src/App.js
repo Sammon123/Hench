@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from './components/Header'
 import Home from './pages/Home'
 import Login from './pages/Login/Login'
@@ -9,6 +9,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import './App.css';
+import { useStateValue } from './components/StateProvider';
+import { auth } from './firebase';
 
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.
@@ -16,6 +18,18 @@ import './App.css';
 const promise = loadStripe("pk_test_51HGqIEBMDhC88mikqdlQVcqDukgNHkTGx2aCgi4ehrebOZMVWF1sb0ogzF62CH5YLLjVBmyGa94G3IR9A25dPHPb00wN9ztCwz");
 
 function App() {
+  const [{ cart }, dispatch] = useStateValue();
+
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+
+      } else {
+
+      }
+    })
+  }, [])
+
   return (
     <Router>
       <div className="App">
