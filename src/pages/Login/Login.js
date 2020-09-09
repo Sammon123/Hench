@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { auth } from '../../../firebase';
 import './Login.css'
 
 const Login = () => {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const login = (e) => {
+        e.preventDefault();
+
+    }
     return (
         <div className="container" id="container">
             <form className="signup">
@@ -12,7 +21,12 @@ const Login = () => {
                     <label htmlFor="">Password</label>
                     <input type="password" name="password" />
                 </div>
-                <button className="form-btn btn-warning">Login</button>
+                <button
+                    onClick={login}
+                    type="submit" className="form-btn btn-warning">Login</button>
+                <button
+                    onClick={signUp}
+                    type="submit" className="form-btn btn-warning">SignUp</button>
             </form>
         </div >
 
