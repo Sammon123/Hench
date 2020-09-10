@@ -7,9 +7,10 @@ import {
     useStripe,
     useElements
 } from "@stripe/react-stripe-js";
-import { Link } from 'react-router-dom';
+import { Link, useHistory, } from 'react-router-dom';
 import CurrencyFormat from 'react-currency-format';
 import { getCartTotal } from '../../reducer';
+import axios from '../../axios';
 
 const Payment = () => {
     const [{ user, cart }, dispatch] = useStateValue();
@@ -19,26 +20,24 @@ const Payment = () => {
     const [processing, setProcessing] = useState('');
     const [disabled, setDisabled] = useState(true);
     const [clientSecret, setClientSecret] = useState('');
+    const history = useHistory();
     const stripe = useStripe();
     const elements = useElements()
 
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
-        window
-            .fetch("/create-payment-intent", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ items: [{ id: "xl-tshirt" }] })
+        const getClientSecret = async () => {
+            const response = await axios({
+                method: 'post',
+                url: `/payments/create?total=${getCartTotal(cart) * 100}`
             })
-            .then(res => {
-                return res.json();
-            })
-            .then(data => {
-                setClientSecret(data.clientSecret);
-            });
-    }, []);
+            setClientSecret(response.data.clientSecret)
+        }
+        //     .then(res => {
+        //     return res.json();
+        // })
+        getClientSecret();
+    }, [cart]);
     const cardStyle = {
         style: {
             base: {
@@ -77,6 +76,7 @@ const Payment = () => {
             setError(null);
             setProcessing(false);
             setSucceeded(true);
+            history.replace('/orders');
         }
     };
 
