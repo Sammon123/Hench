@@ -5,6 +5,7 @@ import Login from './pages/Login/Login'
 import Contact from './pages/Contact/Contact'
 import CheckoutForm from './pages/Checkout/Checkout'
 import Products from './pages/Products/Products'
+import Payment from './components/Payment/Payment'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
@@ -64,6 +65,10 @@ function App() {
           <Route path="/product">
             <Header />
             <Products />
+          </Route>
+          <Route path="/payment">
+            <Header />
+            <Payment />
           </Route>
           <Route path="/">
             <Header />
