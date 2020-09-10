@@ -35,7 +35,8 @@ const Header = () => {
       </Link>
                     <Link to={!user && "/login"} className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
                         onClick={login}>
-                        {user ? 'Sign Out' : 'Sign In'}
+                        {user ? ' Sign Out ' : ' Sign In'}
+                        {!user ? '' : user.email}
                     </Link>
                     <Link to="/product" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                         Apparel
