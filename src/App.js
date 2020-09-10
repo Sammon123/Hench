@@ -50,9 +50,9 @@ function App() {
         <Switch>
           <Route path="/checkout">
             <Header />
-            <Elements stripe={promise}>
-              <CheckoutForm />
-            </Elements>
+
+            <CheckoutForm />
+
           </Route>
           <Route path="/contact">
             <Header />
@@ -68,7 +68,9 @@ function App() {
           </Route>
           <Route path="/payment">
             <Header />
-            <Payment />
+            <Elements stripe={promise}>
+              <Payment />
+            </Elements>
           </Route>
           <Route path="/">
             <Header />
