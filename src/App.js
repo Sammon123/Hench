@@ -18,17 +18,30 @@ import { auth } from './firebase';
 const promise = loadStripe("pk_test_51HGqIEBMDhC88mikqdlQVcqDukgNHkTGx2aCgi4ehrebOZMVWF1sb0ogzF62CH5YLLjVBmyGa94G3IR9A25dPHPb00wN9ztCwz");
 
 function App() {
-  const [{ cart }, dispatch] = useStateValue();
+  const [{ user }, dispatch] = useStateValue();
 
   useEffect(() => {
-    auth.onAuthStateChanged((authUser) => {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
-
+        dispatch({
+          type: 'SET_USER',
+          user: authUser,
+        })
       } else {
-
+        dispatch({
+          type: 'SET_USER',
+          user: null,
+        })
       }
     })
+
+    return () => {
+      unsubscribe();
+    }
+
   }, [])
+
+  console.log('USER IS >>>>>>>', user);
 
   return (
     <Router>

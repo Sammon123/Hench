@@ -2,9 +2,15 @@ import React from 'react';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket'
 import { Link } from 'react-router-dom';
 import { useStateValue } from '../components/StateProvider'
+import { auth } from '../firebase';
 
 const Header = () => {
-    const [{ cart }] = useStateValue();
+    const [{ cart, user }] = useStateValue();
+    const login = () => {
+        if (user) {
+            auth.signOut();
+        }
+    }
     return (
         <nav className="flex items-center justify-between flex-wrap bg-red-900 p-6">
             <div className="flex items-center flex-shrink-0 text-white mr-6">
@@ -27,9 +33,10 @@ const Header = () => {
                     <Link to="/contact" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                         Contact
       </Link>
-                    <Link to="/login" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-                        Login/Sign Up
-      </Link>
+                    <Link to={!user && "/login"} className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+                        onClick={login}>
+                        {user ? 'Sign Out' : 'Sign In'}
+                    </Link>
                     <Link to="/product" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                         Apparel
       </Link>

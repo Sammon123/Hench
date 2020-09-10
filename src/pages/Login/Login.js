@@ -31,7 +31,7 @@ const Login = () => {
             <form className="signup">
                 <h1>Login <i className="fas fa-book-open"></i></h1>
                 <div className="form-control">
-                    <label for="email">Email</label>
+                    <label htmlFor="email">Email</label>
                     <input
                         onChange={e => setEmail(e.target.value)}
                         value={email} type="email" name="email" />
