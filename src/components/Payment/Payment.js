@@ -8,6 +8,8 @@ import {
     useElements
 } from "@stripe/react-stripe-js";
 import { Link } from 'react-router-dom';
+import CurrencyFormat from 'react-currency-format';
+import { getCartTotal } from '../../reducer';
 
 const Payment = () => {
     const [{ user, cart }, dispatch] = useStateValue();
@@ -122,6 +124,20 @@ const Payment = () => {
                                 placeholder="Enter email address"
                             />
                             <CardElement id="card-element" options={cardStyle} onChange={handleChange} />
+                            <div className="payment-priceContainer">
+                                <CurrencyFormat
+                                    renderText={(value) => (
+                                        <>
+                                            <h3>
+                                                Order Total: {value}
+                                            </h3>
+                                        </>
+                                    )}
+                                    value={getCartTotal(cart)}
+                                    displayType={'text'}
+                                    thousandSeparator={true}
+                                    prefix={'$'} />
+                            </div>
                             <button
                                 disabled={processing || disabled || succeeded}
                                 id="submit"
@@ -151,9 +167,7 @@ const Payment = () => {
         </a> Refresh the page to pay again.
       </p>
                         </form>
-
                     </div>
-
                 </div>
             </div>
         </div>
