@@ -12,6 +12,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import './App.css';
 import { useStateValue } from './components/StateProvider';
 import { auth } from './firebase';
+import Orders from './components/Orders/Orders';
 
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.
@@ -50,9 +51,7 @@ function App() {
         <Switch>
           <Route path="/checkout">
             <Header />
-
             <CheckoutForm />
-
           </Route>
           <Route path="/contact">
             <Header />
@@ -71,6 +70,10 @@ function App() {
             <Elements stripe={promise}>
               <Payment />
             </Elements>
+          </Route>
+          <Route path="/orders">
+            <Header />
+            <Orders />
           </Route>
           <Route path="/">
             <Header />
