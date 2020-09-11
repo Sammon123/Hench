@@ -30,3 +30,11 @@
 .payment-details {
 	flex: 0.8;
 }
+
+.payment-details > form {
+	max-width: 400px;
+}
+
+.payment-details > h3 {
+	padding-bottom: 20px;
+}
