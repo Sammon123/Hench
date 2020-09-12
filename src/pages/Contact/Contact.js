@@ -3,11 +3,18 @@ import './Contact.css'
 
 
 const Contact = () => {
+    const [url, setUrl] = useState('mailto:test@example.com?subject=subject&body=body');
     const [name, setName] = useState('');
-    const [company, setCompany] = useState('');
+    const [subject, setSubject] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [message, setMessage] = useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        window.open(`mailto:${email}?subject=${subject}&body=${name}: ${message}`);
+    }
+
     return (
         <div className="container">
             <h1 className="brand"><span>Acme</span>Web Design</h1>
@@ -32,8 +39,8 @@ const Contact = () => {
                         <p>
                             <label htmlFor="">Company</label>
                             <input type="text" name="company"
-                                value={company}
-                                onChange={e => setCompany(e.target.value)} />
+                                value={subject}
+                                onChange={e => setSubject(e.target.value)} />
                         </p>
                         <p>
                             <label htmlFor="">Email Address</label>
@@ -53,7 +60,8 @@ const Contact = () => {
                                 value={message}
                                 onChange={e => setMessage(e.target.value)}></textarea>
                         </p>
-                        <p className="full"><button type="submit">Submit</button>
+                        <p className="full"><button type="submit"
+                            onClick={handleSubmit}>Submit</button>
                         </p>
                     </form>
                 </div>
