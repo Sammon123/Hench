@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Contact.css'
 
+
 const Contact = () => {
+    const [name, setName] = useState('');
+    const [company, setCompany] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [message, setMessage] = useState('');
     return (
         <div className="container">
             <h1 className="brand"><span>Acme</span>Web Design</h1>
