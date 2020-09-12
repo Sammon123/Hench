@@ -22,26 +22,36 @@ const Contact = () => {
                 </div>
                 <div className="contact">
                     <h3>Email Us</h3>
-                    <form action="send" method="post">
+                    <form>
                         <p>
                             <label htmlFor="">Name</label>
-                            <input type="text" name="name" />
+                            <input type="text" name="name"
+                                value={name}
+                                onChange={e => setName(e.target.value)} />
                         </p>
                         <p>
                             <label htmlFor="">Company</label>
-                            <input type="text" name="company" />
+                            <input type="text" name="company"
+                                value={company}
+                                onChange={e => setCompany(e.target.value)} />
                         </p>
                         <p>
                             <label htmlFor="">Email Address</label>
-                            <input type="email" name="email" />
+                            <input type="email" name="email"
+                                value={email}
+                                onChange={e => setEmail(e.target.value)} />
                         </p>
                         <p>
                             <label htmlFor="">Phone Number</label>
-                            <input type="text" name="phone" />
+                            <input type="text" name="phone"
+                                value={phone}
+                                onChange={e => setPhone(e.target.value)} />
                         </p>
                         <p className="full">
                             <label htmlFor="">Message</label>
-                            <textarea name="message" cols="30" rows="10"></textarea>
+                            <textarea name="message" cols="30" rows="10"
+                                value={message}
+                                onChange={e => setMessage(e.target.value)}></textarea>
                         </p>
                         <p className="full"><button type="submit">Submit</button>
                         </p>
