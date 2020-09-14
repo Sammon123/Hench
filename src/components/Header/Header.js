@@ -36,10 +36,6 @@ const Header = () => {
                     {user ? ' Sign Out ' : ' Sign In'}
                     {!user ? '' : user.email}
                 </Link>
-                <Link to="/product"
-                    className="header-link" >
-                    Apparel
-      </Link>
                 <div className="header-cart">
                     <Link to="/checkout"
                         className="header-link" >

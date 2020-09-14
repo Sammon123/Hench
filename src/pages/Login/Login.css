@@ -1,13 +1,19 @@
+h1 {
+	padding-bottom: 20px;
+}
+
 .login {
-	background: #fff;
+	background: white;
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	margin: 0 auto;
+	padding-top: 100px;
 }
 
 .login-container {
+	background: #f3f3f3;
 	width: 300px;
 	display: flex;
 	flex-direction: column;
@@ -29,6 +35,8 @@
 	margin-bottom: 10px;
 	background: #fff;
 	width: 98%;
+	border: 1px solid grey;
+	border-radius: 4px;
 }
 
 .login-container > p {
@@ -43,7 +51,7 @@
 }
 
 .login-signInButton {
-	background: #f0c14b;
+	background: lightskyblue;
 	border-radius: 2px;
 	width: 100%;
 	height: 30px;
@@ -52,7 +60,19 @@
 	border-color: #a88734 #9c7e31 #846a29;
 }
 
+button:hover {
+	transition: 0.2s;
+	background: #000;
+	color: lightskyblue;
+}
+button:active {
+	transition: 0.01s;
+	background: lightskyblue;
+	color: #000;
+}
+
 .login-registerButton {
+	background: white;
 	border-radius: 2px;
 	width: 100%;
 	height: 30px;

@@ -7,8 +7,8 @@ export default function CheckoutForm() {
     const [{ cart }] = useStateValue();
     return (
         <div className='checkout'>
-            <div className="checkout__left">
-                <img className="checkout_ad" src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._C8423492668_.jpg" alt="" />
+            <div className="checkout-left">
+                <img className="checkout-ad" src="https://tse4.mm.bing.net/th?id=OIP.zXDvyoJC3aHo331PsesTDgHaCV&pid=Api&P=0&w=590&h=186" alt="" />
                 {cart?.length === 0 ? (
                     <div>
                         <h2>Your Shopping Basket is Empty</h2>
@@ -16,7 +16,7 @@ export default function CheckoutForm() {
                     </div>
                 ) : (
                         <div>
-                            <h2 className="checkout__title">Your Shopping Basket</h2>
+                            <h2 className="checkout-title">Your Shopping Basket</h2>
                             {cart.map(item => (
                                 <CheckoutProduct
                                     key={item.id}
@@ -32,7 +32,7 @@ export default function CheckoutForm() {
                     )}
             </div>
             {cart.length > 0 && (
-                <div className="checkout__right">
+                <div className="checkout-right">
                     <Subtotal />
                 </div>
             )}

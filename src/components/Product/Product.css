@@ -29,7 +29,20 @@
 }
 
 .product > button {
-	background: #f0c14b;
+	background: lightskyblue;
 	border: 1px solid;
 	border-color: #a88734 #9c7e31 #846a29;
+	padding: 0 10px;
+	border-radius: 5px;
+}
+
+button:hover {
+	transition: 0.2s;
+	background: #000;
+	color: lightskyblue;
+}
+button:active {
+	transition: 0.01s;
+	background: lightskyblue;
+	color: #000;
 }

@@ -1,65 +1,53 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Products.css'
 import Product from '../../components/Product/Product'
 import { v4 as uuidv4 } from 'uuid'
 
-const Products = ({ getQuery }) => {
-    const [text, setText] = useState('');
-    const onChange = (e) => {
-        setText(e);
-        getQuery(e);
-    }
+const Products = () => {
     return (
         <div className="home">
-            <img src="https://www.inspireinkclothing.com/wp-content/uploads/IMGP4483.jpg" alt="" className="home-image" />
-            <form>
-                <input
-                    type="text" class="form-control" placeholder="Search Items"
-                    value={text}
-                    onChange={(e) => onChange(e.target.value)}
-                    autoFocus />
-            </form>
+            <img src="" alt="" className="home-image" />
             <div className="home-row">
                 <Product
                     id={uuidv4()}
-                    title="The Fifth Vital"
-                    price={29.00}
+                    title="King's X Out Of The Planet Raglan"
+                    price={39.99}
                     rating={5}
-                    image="https://m.media-amazon.com/images/I/91rTf5TWhkL._AC_UY327_FMwebp_QL65_.jpg" />
+                    image="https://cdn.shopify.com/s/files/1/0281/2251/3539/products/kgx0015front_1800x1800.jpg?v=1590065919" />
                 <Product
                     id={uuidv4()}
-                    title="Anker PowerCore 10000 Portable Charger, One of The Smallest and Lightest 10000mAh Power Bank, Ultra-Compact Battery Pack, High-Speed Charging Technology Phone Charger for iPhone, Samsung and More."
-                    price={19.99}
+                    title="Weird Al Yankovic Dare To Be Stupid Hat"
+                    price={25.00}
                     rating={5}
-                    image="https://m.media-amazon.com/images/I/51npXeK2FNL._AC_UY327_FMwebp_QL65_.jpg" />
+                    image="https://cdn.shopify.com/s/files/1/0281/2251/3539/products/way0030-web_1800x1800.jpg?v=1590067327" />
             </div>
             <div className="home-row">
                 <Product
                     id={uuidv4()}
-                    title="Sony WH-1000XM4 Wireless Noise Canceling Overhead Black Headphones (2020)"
-                    price={349.00}
+                    title="AC/DC Highway To Hell T-Shirt"
+                    price={25.00}
                     rating={5}
-                    image="https://m.media-amazon.com/images/I/71o8Q5XJS5L._AC_UY327_FMwebp_QL65_.jpg" />
+                    image="https://cdn.shopify.com/s/files/1/0281/2251/3539/products/acd129F_1800x1800.jpg?v=1598039665" />
                 <Product
                     id={uuidv4()}
-                    title="Nintendo Switch with Gray Joy‑Con - HAC-001(-01)"
-                    price={299.99}
+                    title="Sonata Arctica Talviyo Zip Hoodie"
+                    price={48.00}
                     rating={4}
-                    image="https://m.media-amazon.com/images/I/61Q+2i8UM5L._AC_UY327_FMwebp_QL65_.jpg" />
+                    image="https://cdn.shopify.com/s/files/1/0281/2251/3539/products/SNA0009-b_1800x1800.jpg?v=1597679178" />
                 <Product
                     id={uuidv4()}
-                    title="Motorola Edge | Unlocked | Made for US by Motorola | 6/256GB | 64MP Camera | 2020 | Solar Black"
-                    price={699.99}
+                    title="Lacuna Coil Logo Mesh Shorts"
+                    price={25.00}
                     rating={4}
-                    image="https://m.media-amazon.com/images/I/81+mi4ifk2L._AC_UY327_FMwebp_QL65_.jpg" />
+                    image="https://cdn.shopify.com/s/files/1/0281/2251/3539/products/lac0034_88711b5a-cd45-4288-b08f-e9c312a92ff6_1800x1800.jpg?v=1590088910" />
             </div>
             <div className="home-row">
                 <Product
                     id={uuidv4()}
-                    title="TCL 65 Class 6-Series 4K UHD QLED Dolby Vision HDR Roku Smart TV - 65R625"
-                    price={798.00}
-                    rating={5}
-                    image="https://m.media-amazon.com/images/I/91ZrvnzneML._AC_UY327_FMwebp_QL65_.jpg" />
+                    title="Adidas - Core Performance Relaxed Cap - A12"
+                    price={35.00}
+                    rating={4}
+                    image="https://cdn.sportswearcollection.com/Images/Style/1444_fm.jpg" />
             </div>
         </div>
     )

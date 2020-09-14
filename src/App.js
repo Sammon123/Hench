@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Header from './components/Header/Header'
-import Home from './pages/Home'
 import Login from './pages/Login/Login'
 import Contact from './pages/Contact/Contact'
 import CheckoutForm from './pages/Checkout/Checkout'
@@ -62,10 +61,6 @@ function App() {
             <Header />
             <Login />
           </Route>
-          <Route path="/product">
-            <Header />
-            <Products getQuery={(e) => setQuery(e)} />
-          </Route>
           <Route path="/payment">
             <Header />
             <Elements stripe={promise}>
@@ -78,7 +73,7 @@ function App() {
           </Route>
           <Route path="/">
             <Header />
-            <Home />
+            <Products />
           </Route>
         </Switch>
         {/* lalalalalala */}
