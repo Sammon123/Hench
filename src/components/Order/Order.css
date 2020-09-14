@@ -1,8 +1,8 @@
 .order {
-	padding: 14px;
+	padding: 40px;
 	margin: 20px 0;
 	border: 1px solid lightgray;
-	background: #fff;
+	background-color: white;
 	position: relative;
 }
 
@@ -13,6 +13,6 @@
 }
 
 .order-total {
-	font-weight: 500px;
+	font-weight: 500;
 	text-align: right;
 }

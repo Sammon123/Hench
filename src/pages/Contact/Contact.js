@@ -3,7 +3,6 @@ import './Contact.css'
 
 
 const Contact = () => {
-    const [url, setUrl] = useState('mailto:test@example.com?subject=subject&body=body');
     const [name, setName] = useState('');
     const [subject, setSubject] = useState('');
     const [email, setEmail] = useState('');
@@ -17,14 +16,14 @@ const Contact = () => {
 
     return (
         <div className="container">
-            <h1 className="brand"><span>Acme</span>Web Design</h1>
+            <h1 className="brand"><span>Hench</span>Printworks</h1>
             <div className="wrapper animated bounceInLeft">
                 <div className="company-info">
-                    <h3>Acme Web Design</h3>
+                    <h3>Contact Us</h3>
                     <ul>
-                        <li><i className="fa fa-road"></i> 44 Something Street</li>
-                        <li><i className="fa fa-phone"></i>(555) 555 - 5555</li>
-                        <li><i className="fa fa-envelope"></i>test@acme.test</li>
+                        <li><i className="fa fa-road"></i> 47 Court St</li>
+                        <li><i className="fa fa-phone"></i>(603) 507 - 7820</li>
+                        <li><i className="fa fa-envelope"></i>petersammon2@gmail.com</li>
                     </ul>
                 </div>
                 <div className="contact">

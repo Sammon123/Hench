@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import Header from './components/Header'
+import React, { useEffect, useState } from 'react';
+import Header from './components/Header/Header'
 import Home from './pages/Home'
 import Login from './pages/Login/Login'
 import Contact from './pages/Contact/Contact'
@@ -21,6 +21,7 @@ const promise = loadStripe("pk_test_51HGqIEBMDhC88mikqdlQVcqDukgNHkTGx2aCgi4ehre
 
 function App() {
   const [{ user }, dispatch] = useStateValue();
+  const [query, setQuery] = useState();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -63,7 +64,7 @@ function App() {
           </Route>
           <Route path="/product">
             <Header />
-            <Products />
+            <Products getQuery={(e) => setQuery(e)} />
           </Route>
           <Route path="/payment">
             <Header />

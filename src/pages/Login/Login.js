@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { auth } from '../../firebase';
 import './Login.css'
-import { useHistory } from 'react-router';
+import { Link, useHistory } from 'react-router-dom';
 
 const Login = () => {
     const history = useHistory();
@@ -27,26 +27,30 @@ const Login = () => {
             })
     }
     return (
-        <div className="container" id="container">
-            <form className="signup">
-                <h1>Login <i className="fas fa-book-open"></i></h1>
-                <div className="form-control">
-                    <label htmlFor="email">Email</label>
+        <div className="login">
+            <Link to="/">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png" alt="" className="login-logo" />
+            </Link>
+            <div className="login-container">
+                <h1>Sign In</h1>
+                <form>
+                    <h5>Email</h5>
                     <input
                         onChange={e => setEmail(e.target.value)}
-                        value={email} type="email" name="email" />
-                    <label htmlFor="">Password</label>
+                        value={email} type="email" />
+                    <h5>Password</h5>
                     <input
                         onChange={e => setPassword(e.target.value)}
-                        value={password} type="password" name="password" />
-                </div>
+                        value={password} type="password" />
+                    <button
+                        onClick={login}
+                        type="submit" className="login-signInButton">Sign In</button>
+                </form>
+
+                <p>By signing in you agree to Amazons Conditions of Use & Sale. Please see out Privacy Notice, our Cookie Notice and out Interest-Based Ads Notice</p>
                 <button
-                    onClick={login}
-                    type="submit" className="form-btn btn-warning">Login</button>
-                <button
-                    onClick={signUp}
-                    type="submit" className="form-btn btn-warning">SignUp</button>
-            </form>
+                    onClick={signUp} className="login-registerButton">Create your Amazon Account</button>
+            </div>
         </div >
 
     )

@@ -1,0 +1,31 @@
+.header {
+	background-color: #131921;
+	display: flex;
+	align-items: center;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	padding: 20px;
+}
+
+.header-logo {
+	width: 100px;
+	object-fit: contain;
+	margin: 0 20px;
+	margin-top: 18px;
+	font-weight: 800;
+	color: white;
+	font-style: italic;
+}
+
+.header-nav {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.header-link {
+	color: white;
+	text-decoration: none;
+	margin: 0 20px;
+	float: ;
+}

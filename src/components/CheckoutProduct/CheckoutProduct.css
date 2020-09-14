@@ -5,8 +5,12 @@
 
 .checkoutProduct-image {
 	object-fit: contain;
-	width: 100px;
+	width: 180px;
 	height: 180px;
+}
+
+.checkoutProduct-info {
+	padding-left: 20px;
 }
 
 .checkoutProduct-title {
@@ -14,15 +18,10 @@
 	font-weight: 800;
 }
 
-.checkoutProduct-info {
-	padding-left: 20px;
-}
-
 .checkoutProduct-info > button {
-	background: lightskyblue;
+	background: #f0c14b;
 	border: 1px solid;
-	border-color: #666;
+	margin-top: 10px;
+	border-color: #a88734 #9c7e31 #846a29;
 	color: #111;
-	border-radius: 5px;
-	padding: 0 10px;
 }

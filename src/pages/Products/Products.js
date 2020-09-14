@@ -1,12 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Products.css'
 import Product from '../../components/Product/Product'
 import { v4 as uuidv4 } from 'uuid'
 
-const Products = () => {
+const Products = ({ getQuery }) => {
+    const [text, setText] = useState('');
+    const onChange = (e) => {
+        setText(e);
+        getQuery(e);
+    }
     return (
         <div className="home">
             <img src="https://www.inspireinkclothing.com/wp-content/uploads/IMGP4483.jpg" alt="" className="home-image" />
+            <form>
+                <input
+                    type="text" class="form-control" placeholder="Search Items"
+                    value={text}
+                    onChange={(e) => onChange(e.target.value)}
+                    autoFocus />
+            </form>
             <div className="home-row">
                 <Product
                     id={uuidv4()}

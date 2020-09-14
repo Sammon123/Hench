@@ -2,7 +2,7 @@ import React from "react";
 import './Checkout.css'
 import { useStateValue } from "../../components/StateProvider";
 import CheckoutProduct from '../../components/CheckoutProduct/CheckoutProduct';
-import Subtotal from '../../components/Subtotal';
+import Subtotal from '../../components/Subtotal/Subtotal';
 export default function CheckoutForm() {
     const [{ cart }] = useStateValue();
     return (
