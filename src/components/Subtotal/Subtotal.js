@@ -2,7 +2,7 @@ import React from 'react'
 import CurrencyFormat from 'react-currency-format';
 import { getCartTotal } from '../../reducer';
 import { useStateValue } from '../StateProvider';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import './Subtotal.css'
 
 const Subtotal = () => {
